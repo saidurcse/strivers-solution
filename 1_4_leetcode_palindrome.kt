@@ -21,3 +21,6 @@ class Solution {
             return false
     }
 }
+
+Time Complexity: O(log(x)), where x is the input integer
+Space Complexity: O(1)

@@ -23,3 +23,6 @@ class Solution {
             return (-1)*rev.toInt()
     }
 }
+
+Time Complexity: O(log(x)), where x is the input integer
+Space Complexity: O(1)
