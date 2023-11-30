@@ -14,7 +14,8 @@ fun main() {
     //printPattern8(n)
     //printPattern9(n)
     //printPattern10(n)
-    printPattern11(n)
+    //printPattern11(n)
+    printPattern12(n)
 
 }
 /*
@@ -155,6 +156,24 @@ fun printPattern11(n: Int) {
             start = 1 - start //flipping
         }
         println()
+    }
+}
+
+fun printPattern12(n: Int) {
+
+    var spaces = 2 * (n-1)
+    for (i in 1 .. n) {
+        for (j in 1 .. i) {
+            print(j)
+        }
+        for (j in 1 .. spaces) {
+            print(" ")
+        }
+        for (j in i downTo  1) {
+            print(j)
+        }
+        println()
+        spaces -= 2
     }
 }
 
