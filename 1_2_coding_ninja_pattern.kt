@@ -20,7 +20,9 @@ fun main() {
     //printPattern14(n)
     //printPattern15(n)
     //printPattern16(n)
-    printPattern17(n)
+    //printPattern17(n)
+    //printPattern18(n)
+    printPattern19(n)
 
 }
 /*
@@ -244,6 +246,51 @@ fun printPattern17(n: Int) {
         for(j in 0 until   (n-i-1)) {
             print(" ")
         }
+        println()
+    }
+}
+
+fun printPattern18(n: Int) {
+    for(i in 0 until  n) {
+        // A + N -1 -i (i is row no.) to A + N -1 ( E in this case).
+        for (ch in ('A' + n - 1 - i).code .. ('A' + n - 1).code) {
+            print(ch.toChar() + " ")
+        }
+        println()
+    }
+}
+
+fun printPattern19(n: Int) {
+    // Symmetry
+    // Time Complexity: O(n^2)
+    // Space Complexity: O(n) due to iniS
+    var iniS = 0
+    for(i in 0 until  n) {
+        for (j in 1 ..n-i) {
+            print("*")
+        }
+        for (j in 0 until iniS) {
+            print(" ")
+        }
+        for (j in 1 .. n-i) {
+            print("*")
+        }
+        iniS += 2
+        println()
+    }
+
+    iniS = 2*n -2
+    for(i in 1 ..  n) {
+        for (j in 1 ..i) {
+            print("*")
+        }
+        for (j in 0 until iniS) {
+            print(" ")
+        }
+        for (j in 1 .. i) {
+            print("*")
+        }
+        iniS -= 2
         println()
     }
 }
