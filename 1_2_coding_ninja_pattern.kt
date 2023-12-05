@@ -22,7 +22,10 @@ fun main() {
     //printPattern16(n)
     //printPattern17(n)
     //printPattern18(n)
-    printPattern19(n)
+    //printPattern19(n)
+    //printPattern20(n)
+    //printPattern21(n)
+    //printPattern22(n)
 
 }
 /*
@@ -291,6 +294,55 @@ fun printPattern19(n: Int) {
             print("*")
         }
         iniS -= 2
+        println()
+    }
+}
+
+fun printPattern20(n: Int) {
+    var spaces = 2*n -2
+
+    for(i in 1 ..  2*n-1) {
+        var stars = i
+        if(i > n) stars = 2*n - i
+
+        for (j in 1 ..stars) {
+            print("*")
+        }
+        for (j in 1 .. spaces) {
+            print(" ")
+        }
+        for (j in 1 .. stars) {
+            print("*")
+        }
+        println()
+        if(i<n) spaces -= 2
+        else spaces += 2
+    }
+}
+
+fun printPattern21(n: Int) {
+    for (i in 0 until n) {
+        for (j in 0 until n) {
+            if(i ==0 || j ==0 || i == n-1 || j == n-1) {
+                print("*")
+            } else {
+                print(" ")
+            }
+        }
+        println()
+    }
+}
+
+fun printPattern22(n: Int) {
+    for (i in 0 until 2*n-1) {
+        for (j in 0 until 2*n-1) {
+            var top = i
+            var bottom = j
+            var right = (2*n - 2) - j
+            var left = (2*n - 2) - i
+
+            print("${n - Math.min(Math.min(top, bottom), Math.min(left, right))}" + " ")
+        }
         println()
     }
 }
