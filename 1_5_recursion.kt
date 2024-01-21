@@ -102,6 +102,8 @@ fun funFactorial(n: Int): Int {
        }
        println("Factorial of $number is: $fact")
     */
+    
+    // Time Complexity: O(N) // Space Complexity: O(1)    
     if (n == 0) return 1 // we return 1 because the factorial of 0 is 1 only.
     else return n * funFactorial(n - 1)
 }
