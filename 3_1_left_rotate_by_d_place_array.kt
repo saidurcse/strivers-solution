@@ -23,11 +23,11 @@ fun rotateBruteForceRight(arr: IntArray, k: Int) {
 
     //Copy the last k elements into the temp array.
     for (i in n-k until n) { // i = n-k = 4..5
-        temp[i-n+k] = arr[i] // i-n+k = 4-6-2 = 0..1
+        temp[i-n+k] = arr[i] // i-n+k = 4-6+2 = 0..1
     }
 
     //Shift n-k elements from the beginning by k position to the right
-    for (i in n-k-1 downTo 0) { // i = n-k+1 = 3..0
+    for (i in n-k-1 downTo 0) { // i = n-k-1 = 3..0
         arr[i+k] = arr[i] // i+k = 3+2 = 5..2
     }
 
