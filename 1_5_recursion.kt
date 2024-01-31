@@ -190,7 +190,7 @@ fun isPalindrome(str: String): Boolean {
         val r = str[right]
         if (!l.isLetterOrDigit())
             left++
-        else if (!l.isLetterOrDigit())
+        else if (!r.isLetterOrDigit())
             right--
         else if (l.lowercaseChar() != r.lowercaseChar())
             return false
