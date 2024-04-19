@@ -160,11 +160,11 @@ fun hashMapForLargeCharacters() {
     //HashMap char as a key and occurrence as a value
    val charCount = HashMap<Char, Int>()
 
-
    for (i in 0 until str.length) {
 	var count = charCount.getOrDefault(str[i],0)
     	charCount[str[i]] = count + 1      
    }
+
    for ((key, value) in charCount) {
    	print("$key") // e g l o
    	print("$value") // 1 2 1 2
