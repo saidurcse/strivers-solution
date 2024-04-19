@@ -158,24 +158,19 @@ fun hashMapForLargeCharacters() {
     val str = sc.next()
 
     //HashMap char as a key and occurrence as a value
-    val charCount = HashMap<Char, Int>()
+   val charCount = HashMap<Char, Int>()
 
-    for (i in 0 until str.length) {
-        if (charCount.containsKey(str[i])) {
-            // Initially taking count from map
-            var count = charCount[str[i]]!!
-            charCount[str[i]] = ++count // I should not give double equal
-        } else {
-            charCount[str[i]] = 1
-        }
-    }
-    for ((key, value) in charCount) {
-        print("$key") // e g l o
-        print("$value") // 1 2 1 2
-    }
 
-    println(charCount)
+   for (i in 0 until str.length) {
+	var count = charCount.getOrDefault(str[i],0)
+    	charCount[str[i]] = count + 1      
+   }
+   for ((key, value) in charCount) {
+   	print("$key") // e g l o
+   	print("$value") // 1 2 1 2
+   }
 
+   println(charCount)
 }
 
 fun highestLowestFrequencyBruteForce() {
