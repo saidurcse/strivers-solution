@@ -53,4 +53,48 @@ fun main() {
 // Space Complexity: O(n)
 
 
+class TreeNode(var `val`: Int) {
+    var left: TreeNode? = null
+    var right: TreeNode? = null
+}
+
+fun levelOrderRecursive(root: TreeNode?): List<List<Int>> {
+    val result = mutableListOf<List<Int>>()
+    if (root == null) return result
+
+    fun traverseLevel(nodes: List<TreeNode?>, level: Int) {
+        if (nodes.isEmpty()) return
+
+        val values = mutableListOf<Int>()
+        val nextLevelNodes = mutableListOf<TreeNode?>()
+
+        for (node in nodes) {
+            if (node != null) {
+                values.add(node.`val`)
+                nextLevelNodes.add(node.left)
+                nextLevelNodes.add(node.right)
+            }
+        }
+
+        if (values.isNotEmpty()) result.add(values)
+        traverseLevel(nextLevelNodes, level + 1)
+    }
+
+    traverseLevel(listOf(root), 0)
+    return result
+}
+
+fun main() {
+    val root = TreeNode(1)
+    root.left = TreeNode(2)
+    root.right = TreeNode(3)
+    root.left?.left = TreeNode(4)
+
+    val level = levelOrderRecursive(root)
+    println("Level of the tree: $level")
+}
+
+// Time Complexity:  O(n)
+// Space Complexity: O(n)
+
 
