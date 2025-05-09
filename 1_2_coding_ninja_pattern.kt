@@ -61,6 +61,16 @@ fun printPattern3(n: Int) {
     }
 }
 
+fun pattern4(n: Int) {
+    for (i in 1..n) {
+		// Inner loop for columns (print i, i times)
+        for (j in 1..i) {
+            print("$i ")
+        }
+        println()
+    }
+}
+
 fun printPattern5(n: Int) {
     for(i in 0 until n) {
         for (j in n downTo  i) {
@@ -70,10 +80,25 @@ fun printPattern5(n: Int) {
     }
 }
 
+/*
+Row 1 (i = 1):
+j goes from 4 down to 1 → values of j: 4 3 2 1
+n - j + 1: 1 2 3 4
+Output: 1 2 3 4
+*/
 fun printPattern6(n: Int) {
     for(i in 1 .. n) {
         for (j in n downTo   i) {
             print("${n-j+1} ")
+        }
+        println()
+    }
+}
+
+fun printPattern6(n: Int) {
+    for (i in rows downTo 1) {
+        for (j in 1..i) {
+            print("$j ")
         }
         println()
     }
