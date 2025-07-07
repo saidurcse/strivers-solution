@@ -1,0 +1,125 @@
+import java.io.*;
+import java.util.*;
+
+// DFS Solution
+
+class Solution {
+
+    // DFS traversal function
+    private fun dfs(node: Int, adjList: List<MutableList<Int>>, visited: IntArray) {
+        visited[node] = 1
+        for (neighbor in adjList[node]) {
+            if (visited[neighbor] == 0) {
+                dfs(neighbor, adjList, visited)
+            }
+        }
+    }
+
+    fun numProvinces(adj: ArrayList<ArrayList<Int>>, V: Int): Int {
+        val adjList = MutableList(V) { mutableListOf<Int>() }
+
+        // Convert adjacency matrix to adjacency list
+        for (i in 0 until V) {
+            for (j in 0 until V) {
+                if (adj[i][j] == 1 && i != j) {
+                    adjList[i].add(j)
+                    adjList[j].add(i)
+                }
+            }
+        }
+
+        val visited = IntArray(V)
+        var count = 0
+        for (i in 0 until V) {
+            if (visited[i] == 0) {
+                count++
+                dfs(i, adjList, visited)
+            }
+        }
+		
+        return count
+    }
+}
+
+// Main function to run the program
+fun main() {
+    val adj = arrayListOf(
+        arrayListOf(1, 0, 1),
+        arrayListOf(0, 1, 0),
+        arrayListOf(1, 0, 1)
+    )
+
+    val solution = Solution()
+    println(solution.numProvinces(adj, 3))
+}
+
+
+Matrix to List Conversion	O(V²)	O(V + E)
+DFS Traversal	O(V + E)	O(V)
+Total	Time: O(V²)	Space: O(V + E)
+
+// BFS Solution
+
+import java.util.*
+
+class Solution {
+
+    // BFS traversal function
+    private fun bfs(start: Int, adjList: List<MutableList<Int>>, visited: IntArray) {
+        val queue: Queue<Int> = LinkedList()
+        queue.add(start)
+        visited[start] = 1
+
+        while (queue.isNotEmpty()) {
+            val node = queue.poll()
+            for (neighbor in adjList[node]) {
+                if (visited[neighbor] == 0) {
+                    visited[neighbor] = 1
+                    queue.add(neighbor)
+                }
+            }
+        }
+    }
+
+    fun numProvinces(adj: ArrayList<ArrayList<Int>>, V: Int): Int {
+        val adjList = MutableList(V) { mutableListOf<Int>() }
+
+        // Convert adjacency matrix to adjacency list
+        for (i in 0 until V) {
+            for (j in 0 until V) {
+                if (adj[i][j] == 1 && i != j) {
+                    adjList[i].add(j)
+                    adjList[j].add(i)
+                }
+            }
+        }
+
+        val visited = IntArray(V)
+        var count = 0
+
+        for (i in 0 until V) {
+            if (visited[i] == 0) {
+                count++
+                bfs(i, adjList, visited)
+            }
+        }
+
+        return count
+    }
+}
+
+// Main function to test
+fun main() {
+    val adj = arrayListOf(
+        arrayListOf(1, 0, 1),
+        arrayListOf(0, 1, 0),
+        arrayListOf(1, 0, 1)
+    )
+
+    val solution = Solution()
+    println(solution.numProvinces(adj, 3))  // Output: 2
+}
+
+Time Complexity: O(V²)
+Space Complexity: O(V + E)
+
