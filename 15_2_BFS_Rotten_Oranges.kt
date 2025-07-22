@@ -28,6 +28,7 @@ fun orangesRotting(grid: Array<IntArray>): Int {
     val dx = intArrayOf(0, 0, 1, -1)
     val dy = intArrayOf(1, -1, 0, 0)
 
+	// bfs starting from initially rotten oranges
     while (queue.isNotEmpty()) {
         val size = queue.size
         cnt += size
